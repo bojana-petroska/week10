@@ -9,16 +9,16 @@ const add = (a: number, b: number): number => {
 console.log(add(3, 4));
 
 interface Student {
-  id: number,
-  name: string,
-  age: number,
-  email: string,
-  grade?: number,
-  subject?: string
+  id: number;
+  name: string;
+  age: number;
+  email: string;
+  grade?: number;
+  subject?: string;
 }
 
 interface GraduateStudent extends Student {
-  graduationYear: number
+  graduationYear: number;
 }
 
 const graduateStudent: GraduateStudent = {
@@ -26,7 +26,7 @@ const graduateStudent: GraduateStudent = {
   name: 'Boris',
   age: 43,
   email: 'boris@gmail.com',
-  graduationYear: 2023
+  graduationYear: 2023,
 };
 
 // Call a Function for the Student Interface
@@ -39,14 +39,20 @@ const studentDetails = (
   const studentSubject =
     subject !== undefined ? ` for the subject ${subject}` : '';
 
-  return `The name of the student is ${student.name}${studentGrade}${studentSubject}. He is ${student.age}, his email is: ${student.email} and his graduation year was: ${student.graduationYear}.`;
+  console.log(
+    `The name of the student is ${student.name}${studentGrade}${studentSubject}. He is ${student.age}, his email is: ${student.email} and his graduation year was: ${student.graduationYear}.`
+  );
 };
 
-console.log(studentDetails(graduateStudent, 9, 'mathematics'));
+studentDetails(graduateStudent, 9, 'mathematics');
+studentDetails(graduateStudent);
 
 // Translate an Arrow Function
 const calculateAverageGrade = (students: Student[]): number => {
-  const totalGrades = students.reduce((sum, student) => sum + (student.grade || 0), 0);
+  const totalGrades = students.reduce(
+    (sum, student) => sum + (student.grade || 0),
+    0
+  );
   return totalGrades / students.length;
 };
 
