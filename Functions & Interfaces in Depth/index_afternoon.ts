@@ -102,4 +102,4 @@ console.log(clothingItem1)
 addToInventory(clothingItem2, 10, 's');
 console.log(clothingItem2)
 removeFromInventory(clothingItem3, 10, 's');
-//removeFromInventory(clothingItem2, 5);
+removeFromInventory(clothingItem2, 5);
