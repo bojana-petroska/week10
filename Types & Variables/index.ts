@@ -39,12 +39,33 @@ const isStudent = (person: Student | Developer): person is Student => {
     return 'class' in person;
 }
 
-// const person: Student | Developer = {
+const ahmad: Student | Developer = {
+    name: 'Ahmad',
+    class: 'software development',
+    //codingStack: 'MERN'
+}
 
-// }
+const john: Student | Developer = {
+    name: 'Ahmad',
+    codingStack: 'JavaScript'
+}
 
-// if (isStudent(person)) {
+if (isStudent(ahmad)) {
+    console.log(ahmad.class)
+}
 
-// } else {
+type Person = {
+    name: string;
+    age: number;
+}
 
-// }
+type ReadOnlyType = {
+    readonly [K in keyof Person] : Person[K]
+}
+
+type PartialPerson = Partial<Person>
+
+const newPerson: ReadOnlyType = {
+    name: 'ahmad',
+    age: 10
+}
