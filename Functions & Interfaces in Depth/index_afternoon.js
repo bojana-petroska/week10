@@ -44,25 +44,30 @@ const countItemsInInventory = (items) => {
 };
 console.log(countItemsInInventory(clothingItems));
 console.log(countItemsInInventory(clothingItems2));
-const addToInventory = {
-    id: 4,
-    name: 't-shirt',
-    price: 19,
-    quantity: 25,
-    sizes: ['s', 'm', 'l', 'xl']
-};
-console.log(addToInventory);
-// const printDetails = (employee: Engineer | Manager): void => {
-//     if ((employee as Engineer).department) {
-//         const eng = employee as Engineer;
-//         eng.department;
-//         console.log(`Engineer's department is: ${eng.department}`);
-//         console.log(`Tech Stack: ${eng.techStack.join(', ')}`)
-//     } else if ((employee as Manager).projects) {
-//         const manager = employee as Manager;
-//         manager.projects
-//         console.log(`The manager's projects are: ${manager.projects.join(', ')}`)
-//     }
-// }
-// printDetails(engineer1);
-// printDetails(manager1);
+function addToInventory(item, quantity, size) {
+    if (size && item.sizes.includes(size)) {
+        item.quantity += quantity;
+        console.log(`Added ${quantity} ${size} size to ${item.name}!`);
+    }
+    else {
+        item.quantity += quantity;
+        console.log(`Added ${quantity} ${size} size to ${item.name}!`);
+    }
+    ;
+}
+function removeFromInventory(item, quantity, size) {
+    if (size && item.sizes.includes(size)) {
+        item.quantity -= quantity;
+        console.log(`Removed ${quantity} ${size} size from ${item.name}`);
+    }
+    else {
+        item.quantity -= quantity;
+        console.log(`Removed ${quantity} ${size} size from ${item.name}`);
+    }
+}
+addToInventory(clothingItem1, 20);
+console.log(clothingItem1);
+addToInventory(clothingItem2, 10, 's');
+console.log(clothingItem2);
+removeFromInventory(clothingItem3, 10, 's');
+removeFromInventory(clothingItem2, 5);
